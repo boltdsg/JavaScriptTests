@@ -107,9 +107,6 @@ function formatStr(str) {
     ///////////////////////////////////////////////////////////
 }
 
-
-// const output =
-
 /*isAnagram("elbow", "below");*/
 
 /*
