@@ -37,7 +37,7 @@ function BaseballScore(scores) {
         }
 
     }
-    return newRecord;
+    return newRecord.reduce((prev, next) => parseInt(parseInt(prev) + parseInt(next)));
 }
 
 function isNumber(char) {
@@ -54,4 +54,3 @@ function isNumber(char) {
 
 const output = BaseballScore(["5", "2", "C", "D", "+"]);
 
-console.log(output);
