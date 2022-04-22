@@ -1,9 +1,13 @@
+/**
+ * @param {scores[]} scores The array of numbers.
+ * @return {number} A sum of the total scores
+ */
 function BaseballScore(scores) {
 
     let i = 0;
     let newRecord = [];
     let nextTurn = false;
-    let curChar = "";
+    let currentChar = "";
     let prevChar = "";
     let removedChar = "";
     let lastMultiplied = "";
@@ -18,7 +22,7 @@ function BaseballScore(scores) {
                 newRecord.push(scores[i])
             } else {
                 nextTurn = false;
-                curChar = scores[i];
+                currentChar = scores[i];
                 prevChar = scores[i - 1];
             }
             if (!nextTurn && curChar === "C") {
@@ -40,6 +44,7 @@ function BaseballScore(scores) {
     return newRecord.reduce((prev, next) => parseInt(parseInt(prev) + parseInt(next)));
 }
 
+// Checks if is a number that is passed or a string
 function isNumber(char) {
     if (typeof char !== 'string') {
         return false;
