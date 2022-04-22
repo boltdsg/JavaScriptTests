@@ -1,20 +1,28 @@
 function Cards(inputs) {
 
   let i = 0;
-  let newA = [];
+  let newA = [].concat(...inputs);
 
-  while (i < inputs.length) {
+  // flattenArray
+  // newA.push(...inputs.reduce((a, b) => a.concat(b)));
 
-    // extract each array
-    const eachCard = inputs[i];
+  // while (i < inputs.length) {
 
-    for (var j = 0; j < eachCard.length; j++) {
-      // add all array values to new array
-      newA.push(eachCard[j]);
-    }
+  // extract each array
+  // const eachCard = inputs[i];
 
-    i++;
-  }
+  // newA.push(...inputs[i].slice());
+  // newA.push(
+  // newA.concat(a);
+  // console.log(newA);
+
+  // for (var j = 0; j < eachCard.length; j++) {
+  //   // add all array values to new array
+  //   newA.push(eachCard[j]);
+  // }
+
+  // i++;
+  // }
 
 
   // returns duplicate cards
