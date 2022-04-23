@@ -25,15 +25,15 @@ function BaseballScore(scores) {
                 currentChar = scores[i];
                 prevChar = scores[i - 1];
             }
-            if (!nextTurn && curChar === "C") {
+            if (!nextTurn && currentChar === "C") {
                 newRecord = newRecord.filter(x => x.toString() !== prevChar.toString());
                 removedChar = prevChar.toString();
             }
-            if (!nextTurn && curChar === "D") {
+            if (!nextTurn && currentChar === "D") {
                 lastMultiplied = (removedChar * parseInt(scores[0]));
                 newRecord.push(lastMultiplied.toString());
             }
-            if (!nextTurn && curChar === "+") {
+            if (!nextTurn && currentChar === "+") {
                 const addLastMultipliedWithFirstScore = (lastMultiplied + parseInt(scores[0]))
                 newRecord.push(addLastMultipliedWithFirstScore.toString());
             }
@@ -41,21 +41,24 @@ function BaseballScore(scores) {
         }
 
     }
+    // Checks if is a number that is passed or a string
+    function isNumber(char) {
+        if (typeof char !== 'string') {
+            return false;
+        }
+
+        if (char.trim() === '') {
+            return false;
+        }
+
+        return !isNaN(char);
+    }
+
     return newRecord.reduce((prev, next) => parseInt(parseInt(prev) + parseInt(next)));
 }
 
-// Checks if is a number that is passed or a string
-function isNumber(char) {
-    if (typeof char !== 'string') {
-        return false;
-    }
 
-    if (char.trim() === '') {
-        return false;
-    }
-
-    return !isNaN(char);
-}
 
 const output = BaseballScore(["5", "2", "C", "D", "+"]);
 
+console.log(output);
