@@ -5,7 +5,7 @@
 function BaseballScore(scores) {
 
     let i = 0;
-    let newRecord = [];
+    var newRecord = [];
     let nextTurn = false;
     let currentChar = "";
     let prevChar = "";
@@ -17,25 +17,26 @@ function BaseballScore(scores) {
     } else {
         while (i < scores.length) {
             let checkisNum = isNumber(scores[i]);
+
             if (checkisNum) {
                 nextTurn = true;
-                newRecord.push(scores[i])
+                newRecord.push(scores[i].toString())
             } else {
                 nextTurn = false;
-                currentChar = scores[i];
-                prevChar = scores[i - 1];
+                currentChar = scores[i].toString();
+                prevChar = scores[i - 1].toString();
             }
             if (!nextTurn && currentChar === "C") {
-                newRecord = newRecord.filter(x => x.toString() !== prevChar.toString());
-                removedChar = prevChar.toString();
+                newRecord = newRecord.filter(x => x !== prevChar);
+                removedChar = prevChar;
             }
             if (!nextTurn && currentChar === "D") {
-                lastMultiplied = (removedChar * parseInt(scores[0]));
+                lastMultiplied = (parseInt(newRecord[newRecord.length - 1]) * 2);
                 newRecord.push(lastMultiplied.toString());
             }
+
             if (!nextTurn && currentChar === "+") {
-                const addLastMultipliedWithFirstScore = (lastMultiplied + parseInt(scores[0]))
-                newRecord.push(addLastMultipliedWithFirstScore.toString());
+                newRecord.push((parseInt(newRecord[newRecord.length - 2]) + parseInt(newRecord[newRecord.length - 1])).toString())
             }
             i++;
         }
@@ -54,11 +55,15 @@ function BaseballScore(scores) {
         return !isNaN(char);
     }
 
+
     return newRecord.reduce((prev, next) => parseInt(parseInt(prev) + parseInt(next)));
 }
 
 
 
-const output = BaseballScore(["5", "2", "C", "D", "+"]);
+const output = BaseballScore(["5", "-2", "4", "C", "D", "9", "+", "+"])
+//27
+// const output = BaseballScore(["5", "2", "C", "D", "+"]);
+// 30
 
 console.log(output);
