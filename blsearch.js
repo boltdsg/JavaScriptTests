@@ -14,21 +14,22 @@ function linearSearch(arr, elem) {
 // console.log(linearSearch(arr, -1));
 
 // Binary Search
-function binarySearch(arr, key) {
+
+function binarySearch(sortedArray, key) {
   let start = 0;
-  let end = arr.length - 1;
+  let end = sortedArray.length - 1;
 
   while (start <= end) {
-    let middle = Math.floor((start + end) / 2);
+    let middle = Math.floor((start + end) / 2); // get the average
 
-    if (arr[middle] === key) {
+    if (sortedArray[middle] === key) {
       // found the key
       return middle;
-    } else if (arr[middle] < key) {
-      // search to the right
+    } else if (sortedArray[middle] < key) {
+      // continue searching to the right
       start = middle + 1;
     } else {
-      // search  to the left
+      // search searching to the left
       end = middle - 1;
     }
   }
