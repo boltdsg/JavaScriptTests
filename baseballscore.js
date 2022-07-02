@@ -9,7 +9,6 @@ function BaseballScore(scores) {
     let nextTurn = false;
     let currentChar = "";
     let prevChar = "";
-    let removedChar = "";
     let lastMultiplied = "";
 
     if (scores.length === 0) {
