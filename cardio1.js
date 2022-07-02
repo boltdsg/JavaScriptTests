@@ -56,6 +56,36 @@ function capitalizeLetters(str) {
 }
 // console.log(capitalizeLetters("i love javascript"));
 
-function maxCharacters(str) {}
+function maxCharacters(str) {
+  //   let charMap = {};
+  //   str
+  //     .replace(/\b[a-z]/gi)
+  //     .split("")
+  //     .forEach((char) => {
+  //       if (charMap[char]) {
+  //         charMap[char]++;
+  //       } else {
+  //         charMap[char] = 1;
+  //       }
+  //     });
+  //   return charMap;
+}
+// console.log(maxCharacters("samuel is coming home right to this place now"));
 
-console.log(maxCharacters("samuel is coming home right to this place now"));
+function fizzBuzz() {
+  for (let i = 0; i <= 100; i++) {
+    if (i % 15 === 0) {
+      console.log("FizzBuzz");
+    }
+    if (i % 3 === 0) {
+      console.log("FIZZ");
+    } else if (i % 5) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+const result = fizzBuzz();
+console.log(result);
